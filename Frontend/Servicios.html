@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios Fisioterapéuticos</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f7f7f7;
+            color: #333;
+            line-height: 1.6;
+            font-size: 0.9em;
+        }
+
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .container h2 {
+            text-align: center;
+            color: #00796b;
+            font-size: 1.8em;
+            margin-bottom: 40px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+            grid-auto-rows: auto;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px 15px 60px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            max-width: 320px;
+            width: 100%;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 10px;
+            color: #00796b;
+            font-size: 1.5em;
+        }
+
+        .service-card p {
+            margin: 6px 0;
+            font-size: 0.9em;
+        }
+
+        .service-card strong {
+            color: #00796b;
+        }
+
+        form {
+            margin: 0;
+        }
+
+        .btn-agregar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #009688;
+            color: white;
+            padding: 14px 0;
+            border: none;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn-agregar:hover {
+            background-color: #004d40;
+        }
+
+        footer {
+            background-color: #00796b;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Servicios Fisioterapéuticos</h1>
+</header>
+
+<div class="services">
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.Vsyea4-c5zBNcbqle7elvwHaEb?rs=1&pid=ImgDetMain" alt="Rehabilitación Muscular">
+        <h3>Rehabilitación Muscular</h3>
+        <p><strong>Código:</strong> 001</p>
+        <p><strong>Descripción:</strong> Terapia para mejorar la movilidad y aliviar el dolor muscular.</p>
+        <p><strong>Duración:</strong> 45 minutos</p>
+        <p><strong>Equipamiento:</strong> Camilla, electroestimulador</p>
+        <p><strong>Precio:</strong> $120,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="001">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/R.409721bd009819e3904aba946680023f?rik=8GivEGsyqjgZig&riu=http%3a%2f%2ffisioterapiagraciela.es%2fwp-content%2fuploads%2f2016%2f03%2fIMG_1126.jpg&ehk=kYLYnN9yBZJCt4vSfPBWAgYtn9hKzl0XiLVL%2bBrfdSI%3d&risl=&pid=ImgRaw&r=0" alt="Masaje Terapéutico">
+        <h3>Masaje Terapéutico</h3>
+        <p><strong>Código:</strong> 002</p>
+        <p><strong>Descripción:</strong> Masajes para aliviar la tensión y mejorar la circulación.</p>
+        <p><strong>Duración:</strong> 60 minutos</p>
+        <p><strong>Equipamiento:</strong> Camilla, aceites terapéuticos</p>
+        <p><strong>Precio:</strong> $150,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="002">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.-0goOKWUWcveqgXruygJ-wHaE_?rs=1&pid=ImgDetMain" alt="Terapia con Láser">
+        <h3>Terapia con Láser</h3>
+        <p><strong>Código:</strong> 003</p>
+        <p><strong>Descripción:</strong> Terapia de láser para regeneración celular y tratamiento del dolor crónico.</p>
+        <p><strong>Duración:</strong> 30 minutos</p>
+        <p><strong>Equipamiento:</strong> Dispositivo láser terapéutico</p>
+        <p><strong>Precio:</strong> $180,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="003">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.2m3bZnZUq3qe7X3g8CS0zwHaE7?pcl=292827&rs=1&pid=ImgDetMain" alt="Ejercicios de Rehabilitación">
+        <h3>Ejercicios de Rehabilitación</h3>
+        <p><strong>Código:</strong> 004</p>
+        <p><strong>Descripción:</strong> Ejercicios personalizados para rehabilitación de lesiones articulares.</p>
+        <p><strong>Duración:</strong> 1 hora</p>
+        <p><strong>Equipamiento:</strong> Bandas elásticas, pesas</p>
+        <p><strong>Precio:</strong> $170,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="004">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/R.15718896402a7fbf95ee9d0fa7a96750?rik=me6DE9pUXI74gQ&riu=http%3a%2f%2fraquischile.cl%2fassets%2fuploads%2f2019%2f04%2facupuntura2.png&ehk=O%2fUaBDGcZmdylyRV5lmaINbjy7aGja1%2b7WUufj3p4r8%3d&risl=1&pid=ImgRaw&r=0" alt="Terapia con Acupuntura">
+        <h3>Terapia con Acupuntura</h3>
+        <p><strong>Código:</strong> 005</p>
+        <p><strong>Descripción:</strong> Acupuntura para el manejo del dolor y el estrés.</p>
+        <p><strong>Duración:</strong> 40 minutos</p>
+        <p><strong>Equipamiento:</strong> Agujas finas</p>
+        <p><strong>Precio:</strong> $140,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="005">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.VxHDcsEQRYEprLyPqU2ecwHaEo?rs=1&pid=ImgDetMain" alt="Terapia de Calor">
+        <h3>Terapia de Calor</h3>
+        <p><strong>Código:</strong> 006</p>
+        <p><strong>Descripción:</strong> Terapia de calor para aliviar dolores musculares y articulares.</p>
+        <p><strong>Duración:</strong> 30 minutos</p>
+        <p><strong>Equipamiento:</strong> Bolsas de calor, mantas térmicas</p>
+        <p><strong>Precio:</strong> $110,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="006">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.3o8y_FYfKeM7GaOj0hwIrgHaDi?rs=1&pid=ImgDetMain" alt="Rehabilitación de Columna">
+        <h3>Rehabilitación de Columna</h3>
+        <p><strong>Código:</strong> 007</p>
+        <p><strong>Descripción:</strong> Rehabilitación para mejorar la postura y aliviar el dolor de columna.</p>
+        <p><strong>Duración:</strong> 50 minutos</p>
+        <p><strong>Equipamiento:</strong> Camilla, fisiobolas</p>
+        <p><strong>Precio:</strong> $160,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="007">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.XL9ng4ycGY0KzvbBvEgMWQHaE8?rs=1&pid=ImgDetMain" alt="Terapia de Estiramiento">
+        <h3>Terapia de Estiramiento</h3>
+        <p><strong>Código:</strong> 008</p>
+        <p><strong>Descripción:</strong> Estiramientos para mejorar la flexibilidad y evitar lesiones.</p>
+        <p><strong>Duración:</strong> 30 minutos</p>
+        <p><strong>Equipamiento:</strong> Esteras, bandas elásticas</p>
+        <p><strong>Precio:</strong> $100,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="008">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+
+    <div class="service-card">
+        <img src="https://th.bing.com/th/id/OIP.v6rCPd_jDwnKEuI-Dq7c9AHaE8?rs=1&pid=ImgDetMain" alt="Rehabilitación Neurológica">
+        <h3>Rehabilitación Neurológica</h3>
+        <p><strong>Código:</strong> 009</p>
+        <p><strong>Descripción:</strong> Terapia para tratar lesiones neurológicas y mejorar la movilidad.</p>
+        <p><strong>Duración:</strong> 60 minutos</p>
+        <p><strong>Equipamiento:</strong> Camilla, electroestimulador</p>
+        <p><strong>Precio:</strong> $200,000 COP</p>
+        <form action="/asignar_servicio" method="get">
+            <input type="hidden" name="codigo_servicio" value="009">
+            <button type="submit" class="btn-agregar">Agregar servicio</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Fisioterapia Pro. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>

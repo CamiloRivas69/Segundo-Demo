@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Fisioterapia</title>
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            color: #333;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px 50px;
+            background: #b2dfdb;
+            color: #004d40;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn-sesion {
+            display: inline-block;
+            background-color: #00796b;
+            color: white;
+            padding: 14px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+
+        .btn-sesion:hover {
+            background-color: #004d40;
+        }
+
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+            color: #00695c;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            width: 240px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .product-card h3 {
+            margin: 12px 0 8px;
+            color: #00796b;
+            font-size: 18px;
+        }
+
+        .product-card p {
+            font-size: 14px;
+            color: #555;
+        }
+        
+
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenido a FisioSalud</h1>
+    <p>Tu bienestar físico es nuestra prioridad</p>
+</header>
+
+
+
+<section id="productos" class="section">
+    <h2>Productos Recomendados</h2>
+    <div class="products">
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.3iae5uCKZG0aNiEy_Mu7_gHaHa?rs=1&pid=ImgDetMain" alt="Banda elástica">
+            <h3>Banda elástica de resistencia</h3>
+            <p>Ideal para ejercicios de estiramiento y fortalecimiento muscular.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://cbdeportes.com/wp-content/uploads/2019/02/rolo.pilates.34cm.azul_-768x768.jpg" alt="Rodillo de espuma">
+            <h3>Rodillo de espuma</h3>
+            <p>Alivia la tensión muscular y mejora la circulación.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.C6d-oG3ur8EAjNNndba0DwHaHC?rs=1&pid=ImgDetMain" alt="Pelota de pilates">
+            <h3>Pelota de Pilates</h3>
+            <p>Ayuda a mejorar el equilibrio y fortalecer el núcleo.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://plazavea.vteximg.com.br/arquivos/ids/421141-1000-1000/image-33de178e86a244e7b13974a1ecd57c1c.jpg?v=637376864781400000" alt="Tobilleras con peso">
+            <h3>Tobilleras con peso</h3>
+            <p>Perfectas para rehabilitación de piernas y fortalecimiento.</p>
+        </div>
+        <div class="product-card">
+            <img src="https://th.bing.com/th/id/OIP.GiOxIufbZT5A6P4aeNRQegHaHa?rs=1&pid=ImgDetMain" alt="TheraBand">
+            <h3>TheraBand profesional</h3>
+            <p>Recomendada por fisioterapeutas para movilidad y resistencia.</p>
+        </div>
+    </div>
+</section>
+
+<section class="hero">
+    <h1>Recupera tu movilidad con nosotros</h1>
+    <p>Especialistas en terapias físicas personalizadas</p>
+    <a href="/Menu_entrada" class="btn-sesion">Iniciar Sesión</a>
+</section>
+
+<footer>
+    <p>&copy; 2025 FisioSalud. Todos los derechos reservados.</p>
+    <div style="text-align: right; padding: 10px; opacity: 0.2;">
+        <a href="/admin_access" style="color: rgb(218, 2, 2); font-size: 12px;">admin</a>
+    </div>
+    
+</footer>
+
+</body>
+</html>

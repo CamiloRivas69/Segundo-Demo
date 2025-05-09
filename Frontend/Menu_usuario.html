@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Usuario</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .container h2 {
+            color: #00796b;
+        }
+
+        .options {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .option-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px 20px;
+            width: 220px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .option-card h3 {
+            margin-bottom: 10px;
+            color: #009688;
+        }
+
+        .btn-opcion {
+            display: inline-block;
+            margin-top: 10px;
+            background-color: #00796b;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .btn-opcion:hover {
+            background-color: #004d40;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Bienvenido/a a FisioSalud</h1>
+    <p>Panel del Usuario</p>
+</header>
+
+<div class="container">
+    <h2>¿Qué deseas hacer hoy?</h2>
+
+    <div class="options">
+        <div class="option-card">
+            <h3>Crear mi cita</h3>
+            <a href="/crear_cita" class="btn-opcion">Ir a Crear Cita</a>
+        </div>
+
+        <div class="option-card">
+            <h3>Editar perfil</h3>
+            <a href="/" class="btn-opcion">Próximamente</a>
+        </div>
+
+        <div class="option-card">
+            <h3>Servicios para ti</h3>
+            <a href="/servicios" class="btn-opcion">Explorar</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

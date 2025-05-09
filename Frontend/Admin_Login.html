@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Acceso Administrador - FisioSalud</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #e0f7fa, #f1f8e9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .admin-container {
+            background-color: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            padding: 40px 30px;
+            width: 100%;
+            max-width: 360px;
+            text-align: center;
+        }
+
+        .admin-container h2 {
+            color: #00796b;
+            margin-bottom: 25px;
+            font-size: 26px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #00796b;
+            color: white;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .mensaje-error {
+            color: #d32f2f;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="admin-container">
+        <h2>Acceso de Administrador</h2>
+        
+        {% if mensaje %}
+            <div class="mensaje-error">{{ mensaje }}</div>
+        {% endif %}
+
+        <form method="post">
+            <input type="text" name="Codigo" placeholder="Ingresa el código de acceso" required>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+</body>
+</html>
+

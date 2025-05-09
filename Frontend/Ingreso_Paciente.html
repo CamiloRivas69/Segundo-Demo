@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Crear Cita - FisioSalud</title>
+    <style>
+        
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        header {
+            background-color: #009688;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 30px;
+            justify-content: center; 
+            gap: 20px;
+            flex: 1; 
+            align-items: center; 
+        }
+
+
+        .form-container, .table-container {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            width: 48%;
+        }
+
+        .form-container h2,
+        .table-container h2 {
+            margin-top: 0;
+            color: #00796b;
+            font-size: 1.4rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.95rem;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        button {
+            margin-top: 20px;
+            width: 100%;
+            background-color: #00796b;
+            color: white;
+            padding: 12px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #004d40;
+        }
+
+        .mensaje {
+            color: #388e3c;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        #acudiente-section {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-top: 2px dashed #00796b;
+            background-color: #f9fdfc;
+            border-radius: 8px;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        #acudiente-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #004d40;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 5px;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #e0f2f1;
+            color: #00796b;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .form-container, .table-container {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Crear Cita</h1>
+    <p>Formulario para registrar tu cita médica</p>
+</header>
+
+<div class="container">
+    <!-- Formulario -->
+    <div class="form-container">
+        <h2>Formulario de Ingreso</h2>
+        {% if mensaje %}
+            <p class="mensaje">{{ mensaje }}</p>
+        {% endif %}
+        <form method="POST" action="/ingreso_paciente">
+            <label for="id">ID (Cédula):</label>
+            <input type="hidden" name="id" value="{{ usuario_id }}">
+
+
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre sin caracteres especiales ni números"
+               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+    
+
+            <label for="apellido">Apellido:</label>
+            <input type="text" id="apellido" name="apellido" placeholder="Ingrese su nombre sin caracteres especiales ni números"
+               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+    
+
+            <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+            <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required>
+
+            <div id="acudiente-section">
+
+                <h3 style="color:#00796b;">Información del Acudiente</h3>
+
+                <label for="cedula_acudiente">Cédula del Acudiente:</label>
+                <input type="text" id="cedula_acudiente" name="cedula_acudiente">
+                
+
+                <label for="nombre_acudiente">Nombre:</label>
+                <input type="text" id="nombre_acudiente" name="nombre_acudiente" placeholder="Ingrese su nombre sin caracteres especiales ni números"
+               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+    
+
+                <label for="apellido_acudiente">Apellido:</label>
+                <input type="text" id="apellido_acudiente" name="apellido_acudiente" placeholder="Ingrese su nombre sin caracteres especiales ni números"
+               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+    
+
+                <label for="direccion_acudiente">Dirección:</label>
+                <textarea id="direccion_acudiente" name="direccion_acudiente"></textarea>
+
+                <label for="telefono_acudiente">Teléfono:</label>
+                <input type="text" id="telefono_acudiente" name="telefono_acudiente">
+            </div>
+
+            <script>
+                const fechaNacimientoInput = document.getElementById('fecha_nacimiento');
+                const acudienteSection = document.getElementById('acudiente-section');
+
+                fechaNacimientoInput.addEventListener('change', () => {
+                    const fechaNacimiento = new Date(fechaNacimientoInput.value);
+                    const hoy = new Date();
+                    const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+                    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+                    const dia = hoy.getDate() - fechaNacimiento.getDate();
+
+                    const esMenor = (mes < 0 || (mes === 0 && dia < 0)) ? edad - 1 < 18 : edad < 18;
+                    
+                    acudienteSection.style.display = esMenor ? 'block' : 'none';
+
+                    // Agrega o remueve el atributo required dinámicamente
+                    document.getElementById('cedula_acudiente').required = esMenor;
+                    document.getElementById('nombre_acudiente').required = esMenor;
+                    document.getElementById('apellido_acudiente').required = esMenor;
+                    document.getElementById('direccion_acudiente').required = esMenor;
+                    document.getElementById('telefono_acudiente').required = esMenor;
+                });
+            </script>
+
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" name="sexo" required>
+                <option value="Masculino">Masculino</option>
+                <option value="Femenino">Femenino</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="direccion">Dirección:</label>
+            <textarea id="direccion" name="direccion" required></textarea>
+
+            <label for="telefono">Teléfono:</label>
+            <input type="text" id="telefono" name="telefono" required>
+
+            <label for="correo">Correo:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="razon_cita">Razón de la Cita:</label>
+            <textarea id="razon_cita" name="razon_cita" required></textarea>
+
+            <label for="doctor_en_cargo">Doctor en Cargo:</label>
+            <select id="doctor_en_cargo" name="doctor_en_cargo" required>
+                {% for doctor in doctores %}
+                    <option value="{{ doctor.Nombre_completo }}">{{ doctor.Nombre_completo }}</option>
+                {% endfor %}
+            </select>
+
+            <label for="fecha_cita">Fecha de la Cita:</label>
+            <input type="date" id="fecha_cita" name="fecha_cita" required>
+
+            <label for="hora_cita">Hora de la Cita:</label>
+            <input type="time" id="hora_cita" name="hora_cita" required>
+
+            <button type="submit">Registrar Cita</button>
+        </form>
+    </div>
+
+    <div class="table-container">
+        <h2>Doctores Disponibles</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Especialidad</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Academia</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doctor in doctores %}
+                    <tr>
+                        <td>{{ doctor.Nombre_completo }}</td>
+                        <td>{{ doctor.Especialidad }}</td>
+                        <td>{{ doctor.Telefono }}</td>
+                        <td>{{ doctor.Correo }}</td>
+                        <td>{{ doctor.Academia }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

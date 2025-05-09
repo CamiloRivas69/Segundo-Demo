@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel Administrador</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8fdf8;
+            padding: 40px;
+            margin: 0;
+            color: #333;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2e7d32;
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 1600px;
+            border-collapse: collapse;
+            font-size: 14px;
+            background: white;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+        th, td {
+            padding: 12px 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+            vertical-align: middle;
+        }
+        th {
+            background-color: #e8f5e9;
+            font-weight: 600;
+        }
+        input, select {
+            width: 100%;
+            padding: 6px;
+            font-size: 13px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+        }
+        button {
+            padding: 6px 12px;
+            font-size: 13px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .guardar-btn {
+            background-color: #66bb6a;
+            color: white;
+        }
+        .guardar-btn:hover {
+            background-color: #558b2f;
+        }
+        .eliminar-btn {
+            background-color: #ef5350;
+            color: white;
+        }
+        .eliminar-btn:hover {
+            background-color: #c62828;
+        }
+    </style>
+</head>
+<body>
+    <h2>Panel del Administrador - Gestión de Pacientes</h2>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Fecha Nac.</th>
+                    <th>Sexo</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Razón Cita</th>
+                    <th>Doctor</th>
+                    <th>Fecha Cita</th>
+                    <th>Hora Cita</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for p in pacientes %}
+                <tr>
+                    <form method="post" action="/editar_paciente">
+                        <td><input type="text" name="id" value="{{ p.ID }}" readonly></td>
+                        <td><input type="text" name="nombre" value="{{ p.Nombre }}"></td>
+                        <td><input type="text" name="apellido" value="{{ p.Apellido }}"></td>
+                        <td><input type="date" name="fecha_nacimiento" value="{{ p.Fecha_nacimiento }}"></td>
+                        <td>
+                            <select name="sexo">
+                                <option value="Masculino" {% if p.Sexo == "Masculino" %}selected{% endif %}>Masculino</option>
+                                <option value="Femenino" {% if p.Sexo == "Femenino" %}selected{% endif %}>Femenino</option>
+                                <option value="Otro" {% if p.Sexo == "Otro" %}selected{% endif %}>Otro</option>
+                            </select>
+                        </td>
+                        <td><input type="text" name="direccion" value="{{ p.Direccion }}"></td>
+                        <td><input type="text" name="telefono" value="{{ p.Telefono }}"></td>
+                        <td><input type="email" name="correo" value="{{ p.Correo }}"></td>
+                        <td><input type="text" name="razon_cita" value="{{ p.Razon_cita }}"></td>
+                        <td><input type="text" name="doctor" value="{{ p.Doctor_En_Cargo }}"></td>
+                        <td><input type="date" name="fecha_cita" value="{{ p.Fecha_Cita }}"></td>
+                        <td><input type="time" name="hora_cita" value="{{ p.Hora_Cita }}"></td>
+                        <td>
+                            <select name="estado">
+                                <option value="Activo" {% if p.Estado == "Activo" %}selected{% endif %}>Activo</option>
+                                <option value="Desactivado" {% if p.Estado == "Desactivado" %}selected{% endif %}>Desactivado</option>
+                            </select>
+                        </td>
+                        <td class="actions">
+                            <button type="submit" class="guardar-btn">Guardar</button>
+                    </form>
+                    <form method="post" action="/eliminar_paciente">
+                        <input type="hidden" name="id" value="{{ p.ID }}">
+                        <button type="submit" class="eliminar-btn">Eliminar</button>
+                    </form>
+                        </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
