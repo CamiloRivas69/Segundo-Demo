@@ -160,18 +160,16 @@
             <p class="mensaje">{{ mensaje }}</p>
         {% endif %}
         <form method="POST" action="/ingreso_paciente">
-            <label for="id">ID (Cédula):</label>
-            <input type="hidden" name="id" value="{{ usuario_id }}">
-
+            <p><strong>ID (Cédula):</strong> {{ usuario_id }}</p>
+            <input type="hidden" name="id" value="{{ usuario_id }}" readonly>
 
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre sin caracteres especiales ni números"
-               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
-    
+               pattern="^[A-Za-z ]{1,15}$" title="Solo letras ni caracteres especiales" required>
 
             <label for="apellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" placeholder="Ingrese su nombre sin caracteres especiales ni números"
-               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+               pattern="^[A-Za-z ]{1,15}$" title="Solo letras ni caracteres especiales" required>
     
 
             <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
@@ -187,12 +185,12 @@
 
                 <label for="nombre_acudiente">Nombre:</label>
                 <input type="text" id="nombre_acudiente" name="nombre_acudiente" placeholder="Ingrese su nombre sin caracteres especiales ni números"
-               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+               pattern="^[A-Za-z ]{1,15}$" title="Solo letras ni caracteres especiales" required>
     
 
                 <label for="apellido_acudiente">Apellido:</label>
                 <input type="text" id="apellido_acudiente" name="apellido_acudiente" placeholder="Ingrese su nombre sin caracteres especiales ni números"
-               pattern="^[A-Za-z]{1,15}$" title="Solo letras sin espacios ni caracteres especiales" required>
+               pattern="^[A-Za-z ]{1,15}$" title="Solo letras ni caracteres especiales" required>
     
 
                 <label for="direccion_acudiente">Dirección:</label>
@@ -235,7 +233,7 @@
             </select>
 
             <label for="direccion">Dirección:</label>
-            <textarea id="direccion" name="direccion" required></textarea>
+            <input id="direccion" name="direccion" required>
 
             <label for="telefono">Teléfono:</label>
             <input type="text" id="telefono" name="telefono" required>

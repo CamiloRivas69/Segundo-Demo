@@ -67,6 +67,22 @@
         .btn-opcion:hover {
             background-color: #004d40;
         }
+        .btn-logout {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #00796b;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-logout:hover {
+            background-color: #00796b;
+        }
     </style>
 </head>
 <body>
@@ -74,6 +90,7 @@
 <header>
     <h1>Bienvenido/a a FisioSalud</h1>
     <p>Panel del Usuario</p>
+    <a href="/logout" class="btn-logout">Cerrar sesión</a>
 </header>
 
 <div class="container">
